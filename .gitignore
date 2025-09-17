@@ -1,0 +1,62 @@
+# Gradle files
+.gradle/
+**/build/
+!src/**/build/
+
+# Local configuration files
+*.iml
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/build
+/captures
+.externalNativeBuild
+.cxx/
+
+# Keystore files - NUNCA subir al repositorio
+*.keystore
+*.jks
+
+# Archivos temporales
+keystore_base64.txt
+
+# Archivos de propiedades locales con contraseñas
+gradle.properties.local
+
+# Firebase
+google-services.json
+
+# Android Studio
+.navigation/
+*.ipr
+*.iws
+/out/
+
+# Freeline
+freeline.py
+freeline/
+freeline_project_description.json
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
+# Version control
+vcs.xml
+
+# lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+
+# Mac & Android Profiling
+.DS_Store
+*.hprof
