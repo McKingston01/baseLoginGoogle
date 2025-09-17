@@ -177,3 +177,18 @@ ls -la release-key.keystore
 
 # Ver el reporte de signing (esto es clave)
 ./gradlew signingReport
+
+configurar action con secretos 
+ver clave  base64 -w 0 release-key.keystore
+configurar en action
+5.2 Configurar GitHub Secrets
+
+Ve a tu repositorio en GitHub
+Settings → Secrets and variables → Actions
+Click en New repository secret
+Crea estos 3 secrets:
+
+NameValueKEYSTORE_FILEEl contenido base64 que acabas de copiarKEYSTORE_PASSWORDTu contraseña del keystoreKEY_PASSWORDTu contraseña de la key
+
+y ademas condigurar como base 64 el json de google
+base64 -w 0 app/google-services.json

@@ -14,7 +14,6 @@ android {
         }
 
         create("release") {
-
             if (System.getenv("KEYSTORE_PASSWORD") != null) {
                 storeFile = file("../release-key.keystore")
                 storePassword = System.getenv("KEYSTORE_PASSWORD")
@@ -28,8 +27,11 @@ android {
         applicationId = "com.example.baselogingoogle"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+
+        // ===== VERSIONADO AUTOMÁTICO =====
+        // En GitHub Actions usa GITHUB_RUN_NUMBER, localmente usa 1
+        versionCode = (System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1)
+        versionName = "1.0.${versionCode}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,7 +40,7 @@ android {
         getByName("debug") {
             isDebuggable = true
             applicationIdSuffix = ".debug"
-            resValue("string", "app_name", "BaseLogin Debug")
+            resValue("string", "app_name", "BaseLogin Debug v${defaultConfig.versionName}")
         }
 
         getByName("release") {
@@ -56,7 +58,6 @@ android {
             }
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
